@@ -1,0 +1,8 @@
+{
+    "TraceId":"87ab2752-7706-4db5-8305-099a54525doc",
+    "Timestamp": 1711197112,
+    "Data":{
+        "Status":"Success",
+        "Image":"htts://image-1306907872.cos.ap-nanjingmygcloud.com/pics/18bcf84-bff-4537-a6ff-84d28721a21.png?g-sign-algorithm=sha1&q-ak=AKID7DDUFLSDPURjtuog9ZSSTTemmns5Kg&q-sign-time-1711197052%3B171197232&q-key-time=171119752%31711197232&q-header-list=host8g-url-param-list=&q-signature=d93370672f4c93e5441e9eb2dc1be9c1445ba495"
+    }
+}
