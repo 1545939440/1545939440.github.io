@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>除雾效果展示</title><script src="https://cdn.bootcdn.net/ajax/libs/spark-md5/3.0.2/spark-md5.js"></script><script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script><script src="md5.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.js"></script><script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+    <!--		引入vue-->
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <!--		引入axios-->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+    <!--引入 element-ui 的样式，-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <!-- 引入element 的组件库-->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+    <!--    引入layui样式-->
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+</head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+             
+        }
+        .header{
+            height:80px;
+            background-color: #4874cb;
+            
+            box-shadow:0 20px 30px rgba(0,0,0,0.5) ;
+        }
+        .header  .bigtitle{
+            font-size:60px;
+            height: 80px;
+            width: 350px;
+            color: white;
+            text-align: center;
+            line-height: 80px;
+            float: left;
+            letter-spacing: 5px;
+        }
+        .header  .smalltitle{
+            font-size:20px;
+            height: 37px;
+            width: 1000px;
+            color: white;
+            /* text-align: center; */
+            line-height: 30px;
+            float: left;
+            letter-spacing: 5px;
+            margin-top: 43px;
+        }
+        .body{
+            height: 2000px ;
+            background-image: url(img/背景6.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            opacity: 1;
+        }
+        .footer{
+            height:30px;
+            background-color: #4874cb;
+        }
+         a .introduction {
+            /* margin-top: 7.5px; */
+            float :right;
+            width: 50px;
+            height: 30px;
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+         a.histiry {
+            /* margin-top: 7.5px; */
+            float :right;
+            width: 50px;
+            height: 30px;
+            margin-right: 20px;
+        }
+         a .head {
+            /* margin-top: 7.5px; */
+            float :right;
+            width: 40px;
+            height: 30px;
+            margin-right: 20px;
+        }
+         .picture{
+            width: 800px;
+            height: 40px;
+            float: left;
+            background-color: white;
+            border: 5px solid rgb(104, 103, 103);
+            position:relative ;
+            top: 50px;
+            left: 500px;
+        }
+         .picture1{
+            /* width: 300px;
+            height: 500px;
+            float: left;
+             */
+            border:1px solid black ;
+            position:absolute ;
+            top: 250px;
+            left: 600px;
+            float: none;
+            background-repeat:no-repeat ;
+            background-size: cover;
+        }
+         .picture2{
+            /* width: 300px;
+            height: 500px;
+            float: left; */
+            border:1px solid black ;
+            float: none;
+            position:absolute ;
+            top: 250px;
+            left:1100px;
+            background-repeat:no-repeat ;
+            background-size: cover; 
+
+         }
+       
+        
+        .body .picture span{
+            width: 600px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 25px;
+            text-align:right;
+        }
+        form{
+            margin-left: 218px;
+            margin-top: 5px;
+        }
+        a>img{
+            margin-right: 20px;
+        }
+        .picture1{
+            float:left;
+        }
+        .picture2{
+            float:left;
+        }
+        #previewImage{
+            border:1px solid black ;
+            height: 350px;
+            width: 400px;
+            float: none;
+            position: absolute;
+            top: 250px;
+            left: 100px;
+            background-position: center center;
+            background-size: cover;
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="bigtitle">
+            视界净化者
+        </div>
+        <div class="smalltitle">
+            ——您的云上视界处理专家
+        </div>
+               <a  href="主页:图片处理效果展示.html" title="跳转至首页" target="_blank"class="head"><img  src="img/首页.png" width="60px"height="50px"></a>
+
+               <a  href="历史记录.html" title="跳转至历史记录" target="_blank"class="history"><img  src="img/历史记录2.png" width="60px"height="50px"></a>
+        
+           <a  href="功能介绍.html" title="跳转至功能介绍" target="_blank"class="introduction"><img  src="img/功能介绍.png" width="60px" height="50px"></a>
+
+    </div>
+    <div class="body">
+        <div class="picture" id="box">
+           
+            <input type="file" id="Myfile"  >
+            <button id="btn">处理</button>
+            <div id="hint"></div>
+         </div>
+         
+         <img id="previewImage" src="" alt="Preview Image">
+            <div class="picture1" id="image-container1"></div>
+           <div  class="picture2"  id="image-container2"></div>
+           
+           
+         
+    </div>
+    <div class="footer"></div>
+    
+    <script    >
+       var Myfile = document.getElementById('Myfile');
+    const previewImage = document.getElementById('previewImage');
+
+    Myfile.addEventListener('change', function() {
+  const file = Myfile.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    previewImage.src = e.target.result;
+  }
+
+  reader.readAsDataURL(file);
+});
+    </script>
+    <script src="./图片传输.js" >
+
+    </script>
+    <script>
+        var myDiv1 = document.getElementById("image-container1");
+myDiv1.addEventListener("click", function() {
+  // 清空div盒子里的内容
+  myDiv1.innerHTML = "";
+});
+        var myDiv2 = document.getElementById("image-container2");
+myDiv2.addEventListener("click", function() {
+  // 清空div盒子里的内容
+  myDiv2.innerHTML = "";
+});
+    </script>
+</body>
+</html>
